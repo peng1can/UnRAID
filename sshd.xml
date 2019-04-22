@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>sshd</Name>
+  <Repository>panubo/sshd</Repository>
+  <Registry>https://hub.docker.com/r/panubo/sshd/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/panubo/sshd/</Support>
+  <Project/>
+  <Overview>Minimal Alpine Linux Docker container with sshd exposed and rsync installed.   Converted By Community Applications and polished by peng1can.&#xD;
+&#xD;
+</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://github.com/peng1can/UnRAID/raw/master/ssh.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1555947735</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Minimal Alpine Linux Docker container with sshd exposed and rsync installed.   Converted By Community Applications and polished by peng1can.&#xD;
+&#xD;
+</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/ssh/keys</HostDir>
+      <ContainerDir>/etc/ssh/keys</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/ssh/root.ssh</HostDir>
+      <ContainerDir>/root/.ssh</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/ssh/authorized_keys</HostDir>
+      <ContainerDir>/etc/authorized_keys</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value/>
+      <Name>SSH_USERS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>SSH_ENABLE_ROOT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MOTD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>SFTP_MODE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>SFTP_CHROOT</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="SSH Users" Target="SSH_USERS" Default="" Mode="" Description="List of user accounts and uids/gids to create:&#13;&#10;www:48:48,admin:1000:1000" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Enable Root" Target="SSH_ENABLE_ROOT" Default="" Mode="" Description="Unlocks the root account if set to " Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MOTD" Target="MOTD" Default="" Mode="" Description="If set, changes the login message." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Sftp Only" Target="SFTP_MODE" Default="" Mode="" Description=" If set to " Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Sftp Chroot" Target="SFTP_CHROOT" Default="/data" Mode="" Description="If in sftp only mode, sftp will be chrooted to this directory. Default " Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Host Key Path" Target="/etc/ssh/keys" Default="/mnt/user/appdata/ssh/keys" Mode="rw" Description="Host SSH Keys (needs to be persistent in order to avoid client-side warnings)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/ssh/keys</Config>
+  <Config Name="Root SSH Keys" Target="/root/.ssh" Default="/mnt/user/appdata/ssh/root.ssh" Mode="rw" Description="root .ssh credentials (RSA public keys) to access container via root " Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ssh/root.ssh</Config>
+  <Config Name="Authorized Keys (Users)" Target="/etc/authorized_keys" Default="/mnt/user/appdata/ssh/authorized_keys" Mode="rw" Description="mount each user's key in /etc/authorized_keys/&amp;lt;username&amp;gt; and set SSH_USERS config to create user accounts" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ssh/authorized_keys</Config>
+</Container>
